@@ -23,7 +23,7 @@ controls.target.set(0, 0, 0);
 controls.update();
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+const material = new THREE.MeshStandardMaterial({ color: 0xffff00 });
 const torus = new THREE.Mesh(geometry, material);
 
 const pointLight = new THREE.PointLight(0xffffff);
@@ -70,7 +70,7 @@ function randomColor() {
   return color;
 }
 function addStar() {
-  const geometry = new THREE.SphereGeometry(0.25, 50, 50);
+  const geometry = new THREE.SphereGeometry(0.25, 75, 75);
   const material = new THREE.MeshStandardMaterial({ color: randomColor() });
   const star = new THREE.Mesh(geometry, material);
 
