@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -14,7 +15,12 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
+camera.position.set(35, 25, 35);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.target.set(0, 0, 0);
+controls.update();
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
@@ -22,7 +28,9 @@ const torus = new THREE.Mesh(geometry, material);
 
 const pointLight = new THREE.PointLight(0xffffff);
 const ambientLight = new THREE.AmbientLight(0xffffff);
-pointLight.position.set(50, 50, 50);
+pointLight.position.set(0, 0, 0);
+pointLight.intensity = 100;
+pointLight.distance = 500;
 scene.add(pointLight, ambientLight);
 
 const lightHelper = new THREE.PointLightHelper(pointLight);
@@ -32,6 +40,7 @@ scene.add(lightHelper, gridHelper);
 scene.add(torus);
 function animate() {
   requestAnimationFrame(animate);
+  controls.update();
   torus.rotation.x += 0.05;
   torus.rotation.y += 0.0;
   torus.rotation.z += 0.0;
@@ -53,10 +62,10 @@ function randomPosition() {
   return [x, y, z];
 }
 function randomColor() {
-  const hex_nums = "0123456789abcdef";
+  const hex_nums = "0f";
   let color = "#";
   for (let i = 0; i < 6; i++) {
-    color += hex_nums[Math.floor(Math.random() * 16)];
+    color += hex_nums[Math.floor(Math.random() * 2)];
   }
   return color;
 }
@@ -70,4 +79,4 @@ function addStar() {
   scene.add(star);
 }
 
-Array(200).fill().forEach(addStar);
+Array(400).fill().forEach(addStar);
