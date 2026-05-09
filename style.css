@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Bungee&family=Federant&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Supermercado+One&display=swap");
+
 html,
 body {
   height: 100%;
@@ -11,4 +13,35 @@ canvas {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+main {
+  position: absolute;
+  z-index: 1;
+
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+main h1 {
+  font-family: "Bebas Neue", sans-serif;
+  color: #fff;
+  font-size: 72px;
+  padding: 20px;
+  border-radius: 8px;
+}
+main h2 {
+  font-family: "Archivo Black", sans-serif;
+  color: #fff;
+  font-size: 24px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+main p {
+  font-family: "Archivo Black", sans-serif;
+  color: #fff;
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
 }
