@@ -18,30 +18,34 @@ canvas {
 main {
   position: absolute;
   z-index: 1;
-
-  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
 }
-
+.content {
+  padding: 20px;
+}
 main h1 {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Supermercado One", sans-serif;
   color: #fff;
   font-size: 72px;
-  padding: 20px;
   border-radius: 8px;
 }
 main h2 {
-  font-family: "Archivo Black", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #fff;
-  font-size: 24px;
-  padding: 20px;
+  font-size: 36px;
   border-radius: 8px;
 }
 
 main p {
-  font-family: "Archivo Black", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #fff;
+  background-color: rgb(0, 13, 69);
   font-size: 18px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   max-width: 600px;
+}
+main p a {
+  color: #1b63ff;
+  font-weight: bold;
 }
