@@ -62,12 +62,15 @@ function randomPosition() {
   return [x, y, z];
 }
 function randomColor() {
-  const hex_nums = "0f";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += hex_nums[Math.floor(Math.random() * 2)];
-  }
-  return color;
+  const color_codes = [
+    "ff0000",
+    "00ff00",
+    "0000ff",
+    "ffff00",
+    "ff00ff",
+    "00ffff",
+  ];
+  return "#" + color_codes[Math.floor(Math.random() * color_codes.length)];
 }
 function addStar() {
   const geometry = new THREE.SphereGeometry(0.25, 75, 75);
