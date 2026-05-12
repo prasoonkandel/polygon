@@ -15,7 +15,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.set(35, 10, 35);
+camera.position.set(0, 10, 60);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -25,7 +25,6 @@ controls.update();
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({ color: 0xffff00 });
 const torus = new THREE.Mesh(geometry, material);
-
 const pointLight = new THREE.PointLight(0xffffff);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 pointLight.position.set(0, 0, 0);
@@ -38,6 +37,7 @@ const gridHelper = new THREE.GridHelper(200, 50);
 scene.add(lightHelper, gridHelper);
 
 scene.add(torus);
+let torusAlive = true;
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
@@ -91,3 +91,13 @@ const logo = new THREE.Mesh(
 );
 logo.position.set(0, 0, 0);
 scene.add(logo);
+
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top;
+  camera.position.z = t * -0.01 + 35;
+  camera.position.x = t * -0.0002 + 35;
+  camera.position.y = t * -0.0002 + 10;
+}
+
+document.body.onscroll = moveCamera;
+moveCamera();
