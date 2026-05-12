@@ -84,7 +84,14 @@ function addStar() {
 
 Array(400).fill().forEach(addStar);
 
-const logoTexture = new THREE.TextureLoader().load("./prynix.png");
+// Fixing texture issue by grinding stack overflow:(
+const logoTexture = new THREE.TextureLoader().load(
+  new URL("./prynix.png", import.meta.url).href,
+  undefined,
+  undefined,
+  (error) => console.error("Texture load error:", error),
+);
+
 const logo = new THREE.Mesh(
   new THREE.BoxGeometry(5, 5, 5),
   new THREE.MeshBasicMaterial({ map: logoTexture }),
