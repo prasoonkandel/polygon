@@ -94,6 +94,18 @@ scene.add(logo);
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
+
+  torus.position.z = t * 1;
+
+  if (torus.position.z < -80) {
+    torusAlive = false;
+    scene.remove(torus);
+    torus.position.z = -100;
+  } else {
+    torusAlive = true;
+    scene.add(torus);
+  }
+
   camera.position.z = t * -0.01 + 35;
   camera.position.x = t * -0.0002 + 35;
   camera.position.y = t * -0.0002 + 10;
