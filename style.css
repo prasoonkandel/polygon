@@ -45,7 +45,18 @@ main p {
   border-radius: 8px;
   max-width: 600px;
 }
-main p a {
+
+main ul {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  background-color: rgb(0, 13, 69);
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 600px;
+}
+main p a,
+main ul a {
   color: #1b63ff;
   font-weight: bold;
 }
