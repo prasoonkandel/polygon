@@ -95,7 +95,9 @@ scene.add(logo);
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
 
-  torus.position.z = t * 1;
+  torus.position.z = t * 0.25;
+  logo.position.z = t * 0.05;
+  logo.scale.set(t * -0.005 + 1, t * -0.005 + 1, t * -0.005 + 1);
 
   if (torus.position.z < -80) {
     torusAlive = false;
