@@ -11,3 +11,5 @@ Click here to view live demo: ![Click Me]("https://prynix-info-3d.vercel.app/")
 <br/>
 ### End of the page:
 ![Screen Shot](./demo_2.png)
+
+Developed By: Prasoon Kandel
